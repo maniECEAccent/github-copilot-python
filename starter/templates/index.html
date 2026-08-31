@@ -7,12 +7,58 @@
 </head>
 <body>
   <h1>Sudoku Game</h1>
+
+  <div class="top-bar">
+    <div class="difficulty-selector">
+      <label>Select Difficulty:</label>
+      <div class="difficulty-buttons">
+        <button id="difficulty-easy" class="difficulty-btn" data-difficulty="easy">
+          Easy
+        </button>
+        <button id="difficulty-medium" class="difficulty-btn active" data-difficulty="medium">
+          Medium
+        </button>
+        <button id="difficulty-hard" class="difficulty-btn" data-difficulty="hard">
+          Hard
+        </button>
+      </div>
+    </div>
+
+    <button id="dark-mode-toggle" class="dark-mode-toggle" type="button" aria-label="Toggle dark mode">
+      Dark Mode
+    </button>
+  </div>
+  
   <div id="sudoku-board"></div>
   <div class="controls">
+    <div class="timer-panel" aria-live="polite">
+      <span class="timer-label">Time:</span>
+      <span id="timer">00:00</span>
+    </div>
+    <div class="hint-panel" aria-live="polite">
+      <span class="hint-label">Hints used:</span>
+      <span id="hint-count">0</span>
+    </div>
     <button id="new-game">New Game</button>
+    <button id="hint-button">Hint</button>
     <button id="check-solution">Check Solution</button>
     <span id="message"></span>
   </div>
-  <script src="/static/main.js"></script>
+  <section class="leaderboard" aria-labelledby="leaderboard-title">
+    <h2 id="leaderboard-title">Top 10 Leaderboard</h2>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Name</th>
+          <th scope="col">Time</th>
+          <th scope="col">Level</th>
+          <th scope="col">Hints</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard-body"></tbody>
+    </table>
+  </section>
+  <script src="/static/main.js" defer></script>
 </body>
 </html>
